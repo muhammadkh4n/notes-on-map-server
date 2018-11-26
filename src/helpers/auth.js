@@ -10,7 +10,7 @@ export const register = async (req, res, next) => {
   }
   try {
     const user = await User.findOne({ email: req.body.email }).exec();
-    if (user) return respondErr(res, [403, 'User exists'])();
+    if (user) return respondErr(res, [400, 'User exists'])();
     const hashedPassword = await bcrypt.hash(req.body.password, 8);
     const newUser = await User.create({
       email: req.body.email,

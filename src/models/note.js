@@ -9,7 +9,7 @@ const NoteSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  lon: {
+  lng: {
     type: Number,
     required: true
   },

@@ -7,6 +7,7 @@ import passport from 'passport';
 import cors from 'cors';
 
 import authRoutes from './routes/auth';
+import noteRoutes from './routes/notes';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cors());
 require(__dirname + '/models');
 
 app.use('/api/auth', authRoutes);
+app.use('/api/notes', noteRoutes);
 
 mongoose.connect(config.mongoUri, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
