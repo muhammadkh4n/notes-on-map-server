@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import http from 'http';
 import bodyParser from 'body-parser';
 import passport from 'passport';
+import cors from 'cors';
 
 import authRoutes from './routes/auth';
 
@@ -12,6 +13,7 @@ const app = express();
 app.use(bodyParser.json())
 require('./helpers/passport');
 app.use(passport.initialize());
+app.use(cors());
 
 require(__dirname + '/models');
 
